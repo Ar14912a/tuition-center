@@ -40,6 +40,8 @@ nav {
   justify-content: space-between;
   padding: 10px 28px;
   border-bottom: 1px solid rgba(26,188,156,0.2);
+  height: 68px;
+  box-sizing: border-box;
 }
 .nav-logo {
   display: flex;
@@ -80,13 +82,16 @@ nav {
   height: 380px;
   overflow: hidden;
   background: #000;
+  display: block;
+  line-height: 0;
 }
 .fb-cover-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center center;
   display: block;
+  vertical-align: top;
 }
 .fb-cover-gradient {
   position: absolute;
@@ -97,12 +102,14 @@ nav {
 /* Profile section below cover */
 .fb-profile-row {
   background: var(--dark2);
-  padding: 0 5% 30px;
+  padding: 0 24px 24px;
   display: flex;
   align-items: flex-end;
   gap: 24px;
   border-bottom: 1px solid rgba(26,188,156,0.15);
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 .fb-profile-pic {
   margin-top: -60px;
@@ -597,9 +604,9 @@ footer span { color: var(--teal); }
 }
 
 @media (max-width: 768px) {
-  .fb-cover-wrap { height: 200px; }
-  .fb-profile-pic img { width: 110px; height: 110px; }
-  .fb-profile-row { flex-direction: column; align-items: flex-start; }
+  .fb-cover-wrap { height: 180px; margin-top: 60px; }
+  .fb-profile-pic img { width: 100px; height: 100px; }
+  .fb-profile-row { flex-direction: column; align-items: flex-start; gap: 10px; }
   .hero { flex-direction: column; padding: 60px 5% 60px; text-align: center; gap: 40px; }
   .hero-btns { justify-content: center; }
   .hero-stats { justify-content: center; }
@@ -975,5 +982,38 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 </script>
+
+<!-- ============================================================
+     📸 تصویریں کیسے شامل کریں — HOW TO ADD YOUR PHOTOS
+     ============================================================
+
+  1. COVER IMAGE (Banner at top):
+     اپنی فائل index.html کھولیں اور یہ لائن تلاش کریں:
+     <img class="fb-cover-img" src="data:image/jpeg;base64,..." ...>
+     src= کی جگہ اپنی تصویر کا نام لکھیں:
+     <img class="fb-cover-img" src="cover.jpg" alt="...">
+     (تصویر index.html کے ساتھ ایک ہی فولڈر میں رکھیں)
+
+  2. LOGO / MONOGRAM (Nav bar + Profile):
+     یہ لائنیں تلاش کریں جن میں class="nav-logo" ہے
+     اور جس <img> پر class نہیں but src="data:image/jpeg..." ہے
+     src= تبدیل کریں: src="logo.png"
+
+  3. TEACHER PHOTO (Hero circle + Teacher section):
+     class="hero-ring" کے اندر <img> تلاش کریں
+     اور class="teacher-photo" والی <img> تلاش کریں
+     دونوں کا src= تبدیل کریں: src="teacher.jpg"
+
+  4. GALLERY PHOTOS (ویب سائٹ کھول کر اپلوڈ کریں):
+     ویب سائٹ کھولیں → نیچے سکرول کریں
+     "گیلری تصویر اپلوڈ کریں" سیکشن میں فائل منتخب کریں
+     بٹن دبائیں — تصویر فوری شامل ہو جائے گی
+
+  5. ACHIEVEMENT PHOTO (کامیابی کے ساتھ تصویر):
+     "کامیابی شامل کریں" سیکشن میں فائل منتخب کریں
+     
+  NOTE: تمام تصویریں index.html والے فولڈر میں رکھیں
+  ============================================================ -->
+
 </body>
 </html>
